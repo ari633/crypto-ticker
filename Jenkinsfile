@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'make package'
+        echo 'Start Build'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'make check'
+        echo 'Start Test'
       }
     }
 
@@ -19,7 +19,7 @@ pipeline {
       }
       steps {
         echo 'Deploying only because this commit is tagged...'
-        sh 'make deploy'
+        echo 'Start deploy'
       }
     }
 
