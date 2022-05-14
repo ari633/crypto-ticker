@@ -1,6 +1,9 @@
 pipeline {
   agent any
   stages {
+    when {
+      tag 'release-*'
+    }    
     stage('Build') {
       steps {
         echo 'Start Build'
@@ -14,9 +17,6 @@ pipeline {
     }
 
     stage('Deploy') {
-      when {
-        tag 'release-*'
-      }
       steps {
         echo 'Deploying only because this commit is tagged...'
         echo 'Start deploy'
