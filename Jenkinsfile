@@ -5,7 +5,9 @@ pipeline {
   
     
     stage('Test') {  
-      echo "Testing ${TAG_NAME}"
+      steps {
+        echo "Testing ${TAG_NAME}"
+      }
     }  
     
     stage('Build') {
@@ -15,7 +17,9 @@ pipeline {
     }  
     
     stage('Deploy') {
-      echo 'Deploy Success'
+      steps {
+        echo 'Deploy Success'
+      }
     }
   }
 }
