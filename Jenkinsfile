@@ -11,12 +11,18 @@ pipeline {
     }  
     
     stage('Build') {
+      when { 
+        tag "release-*" 
+      }      
       steps {
         echo 'Building'
       }
     }  
     
     stage('Deploy') {
+      when { 
+        tag "release-*" 
+      }      
       steps {
         echo 'Deploy Success'
       }
