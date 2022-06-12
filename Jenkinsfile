@@ -1,19 +1,23 @@
-node ("web-agent-dev"){
-  stage('Clone repository') {
-    checkout scm
-  }
-  
-  stage('Test') {  
-    sh 'echo "${TAG_NAME}"'
-  }  
-  
-  stage('Build') {
-    script {
-      sh 'echo "Build Success"'
+pipeline {
+  agent any
+
+  stages {
+    stage('Clone repository') {
+      checkout scm
     }
-  }  
-  
-  stage('Deploy') {
-    sh 'echo "Deploy Success"'
+    
+    stage('Test') {  
+      sh 'echo "${TAG_NAME}"'
+    }  
+    
+    stage('Build') {
+      script {
+        sh 'echo "Build Success"'
+      }
+    }  
+    
+    stage('Deploy') {
+      sh 'echo "Deploy Success"'
+    }
   }
 }
